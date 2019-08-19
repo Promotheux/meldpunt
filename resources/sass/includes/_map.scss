@@ -1,0 +1,53 @@
+.map {
+  padding-left:0 !important;
+  padding-bottom:0 !important;
+  position:relative;
+
+  .map-controls {
+    position:absolute;
+    width:calc(100% - 30px);
+    top: 15px;
+    left:10px;
+
+    .searchbox {
+      position:relative;
+      input {
+        background-color:#FFF;
+        border-radius:4px;
+        height:30px;
+        font-size:16px;
+        line-height: 20px;
+        padding:5px 10px 5px 40px;
+        width:200px;
+        z-index:1;
+      }
+
+      i.material-icons {
+        position: absolute;
+        left:10px;
+        top:-2px;
+        z-index:2;
+      }
+    }
+
+    .add-marker {
+      position:absolute;
+      right:10px;
+
+
+      button i {
+        position:absolute;
+      }
+      button .inner {
+        line-height: 1.3rem;
+        padding-left:25px;
+      }
+    }
+  }
+}
+
+#map {
+  width:100%;
+  height: calc(100vh - 134px);
+  position:relative;
+}

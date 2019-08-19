@@ -1,0 +1,63 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);nav a.brand-logo {
+  margin-left: 0.33rem;
+}
+
+.map {
+  padding-left: 0 !important;
+  padding-bottom: 0 !important;
+  position: relative;
+}
+
+.map .map-controls {
+  position: absolute;
+  width: calc(100% - 30px);
+  top: 15px;
+  left: 10px;
+}
+
+.map .map-controls .searchbox {
+  position: relative;
+}
+
+.map .map-controls .searchbox input {
+  background-color: #FFF;
+  border-radius: 4px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 5px 10px 5px 40px;
+  width: 200px;
+  z-index: 1;
+}
+
+.map .map-controls .searchbox i.material-icons {
+  position: absolute;
+  left: 10px;
+  top: -2px;
+  z-index: 2;
+}
+
+.map .map-controls .add-marker {
+  position: absolute;
+  right: 10px;
+}
+
+.map .map-controls .add-marker button i {
+  position: absolute;
+}
+
+.map .map-controls .add-marker button .inner {
+  line-height: 1.3rem;
+  padding-left: 25px;
+}
+
+#map {
+  width: 100%;
+  height: calc(100vh - 134px);
+  position: relative;
+}
+
+.row {
+  margin-bottom: 0;
+}
+
