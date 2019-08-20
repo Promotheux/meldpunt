@@ -2,7 +2,11 @@
 
 @section('pageTitle')
     {{$report->name}}
-@stop
+@endsection
+
+@section('headerScripts')
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ4OOoujNrDxFvdaBlFaV58cXdYJuCBZ4&libraries=places&language=nl-NL"></script>
+@endsection
 
 @section('content')
     <div class="container-fluid">
@@ -18,6 +22,6 @@
             </div>
         </div>
     </div>
-@stop
+@endsection
 
 

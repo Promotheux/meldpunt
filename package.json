@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "mappa-mundi": "0.0.5",
+        "nlmaps": "^2.3.50",
         "ol": "^5.3.3"
     }
 }

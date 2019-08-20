@@ -37,9 +37,7 @@
             }
         },
         mounted() {
-
             this.$markers = [];
-
 
             this.$map = new google.maps.Map(document.getElementById("map"), {
                 disableDefaultUI: true,
@@ -48,10 +46,10 @@
                 zoom: this.zoom,
             });
 
+
             var map = this.$map;
             var markers = null;
             var markerCluster = null;
-
             var lastOpen = null;
 
             this.$map.data.loadGeoJson(
@@ -117,6 +115,7 @@
                 map: this.$map,
                 listener: "",
                 markerCluster: null,
+                layer: "",
             };
         },
         methods : {

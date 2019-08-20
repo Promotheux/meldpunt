@@ -196,7 +196,8 @@ var marker = "";
     return {
       map: this.$map,
       listener: "",
-      markerCluster: null
+      markerCluster: null,
+      layer: ""
     };
   },
   methods: {
