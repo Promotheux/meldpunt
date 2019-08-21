@@ -1,17 +1,25 @@
 <template>
-    <div>
-        <map-controls></map-controls>
-        <google-map></google-map>
-    </div>
+    <HereMap></HereMap>
 </template>
 
-<style>
-</style>
-
 <script>
+
+    import HereMap from './components/HereMap'
+    var vm = window.vm
+
     export default {
-        data(){
-            return {};
+        name: 'app',
+        data: () => ({
+        }),
+        components: {
+            HereMap,
+
         }
     }
 </script>
+
+<style>
+    img.logo {
+        width: 32px;
+    }
+</style>

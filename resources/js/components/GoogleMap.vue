@@ -15,6 +15,8 @@
     let theNetherlands = [52.3122622, 5.5479606];
     let marker = "";
 
+
+
     export default {
         props: {
             'latitude': {

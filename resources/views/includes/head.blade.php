@@ -8,7 +8,8 @@
 {!! MaterializeCSS::include_full() !!}
 
 <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ4OOoujNrDxFvdaBlFaV58cXdYJuCBZ4&libraries=places&language=nl-NL"></script>
+{{-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJ4OOoujNrDxFvdaBlFaV58cXdYJuCBZ4&libraries=places&language=nl-NL"></script> --}}
+<link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1526040296" />
 
 
 
