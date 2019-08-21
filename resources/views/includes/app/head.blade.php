@@ -8,7 +8,6 @@
 {!! MaterializeCSS::include_full() !!}
 
 <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-
 @yield('customStyles')
 
 @yield('headerScripts')

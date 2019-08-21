@@ -86,6 +86,1667 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@formschema/native/dist/FormSchema.umd.min.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@formschema/native/dist/FormSchema.umd.min.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* @formschema/native v2.0.0-alpha.2 (c) Sébastien Demanou - MIT */
+!function(t,e){ true?e(exports):undefined}(this,function(t){"use strict";function f(t){return(f="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function n(t,e){for(var a=0;a<e.length;a++){var r=e[a];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}function l(t,e,a){return e in t?Object.defineProperty(t,e,{value:a,enumerable:!0,configurable:!0,writable:!0}):t[e]=a,t}function h(e){for(var t=1;t<arguments.length;t++){var a=null!=arguments[t]?arguments[t]:{},r=Object.keys(a);"function"==typeof Object.getOwnPropertySymbols&&(r=r.concat(Object.getOwnPropertySymbols(a).filter(function(t){return Object.getOwnPropertyDescriptor(a,t).enumerable}))),r.forEach(function(t){l(e,t,a[t])})}return e}function p(t){return function(t){if(Array.isArray(t)){for(var e=0,a=new Array(t.length);e<t.length;e++)a[e]=t[e];return a}}(t)||function(t){if(Symbol.iterator in Object(t)||"[object Arguments]"===Object.prototype.toString.call(t))return Array.from(t)}(t)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance")}()}function e(e,a){if(u(e))return e===a;var t=Object.keys(e);return t.length===Object.keys(a).length&&-1===t.findIndex(function(t){return!a.hasOwnProperty(t)||e[t]!==a[t]})}function u(t){return null===t||/string|number|boolean|undefined/.test(f(t))}function i(a,r){return Object.keys(r).forEach(function(t){var e=r[t];u(e)?a[t]=e:e instanceof Array?a[t]=p(e):e instanceof Function?a[t]=e:(a[t]||(a[t]={}),i(a[t],e))}),a}var v=i;function a(t){return i({},t)}function r(t){for(var e in t)delete t[e]}function s(t){for(var e in t)return!1;return!0}var o=Object.freeze({equals:e,isScalar:u,merge:i,assign:v,clone:a,clear:r,isEmpty:s}),c=["anyOf","oneOf","enum"],m=Object.freeze({ARRAY:"array",BOOLEAN:"boolean",INTEGER:"integer",NUMBER:"number",OBJECT:"object",STRING:"string"}),y=Object.freeze({CHECKBOX:"checkbox",EMAIL:"email",HIDDEN:"hidden",NUMBER:"number",RADIO:"radio",SELECT:"select",SWITCH:"switch",TEXT:"text",TEXTAREA:"textarea",URL:"url"}),d=Object.freeze([m.INTEGER,m.NUMBER]);function b(){return Math.floor(65536*(1+Math.random())).toString(16).substring(1)}function E(){var t=0<arguments.length&&void 0!==arguments[0]?arguments[0]:"",e=b()+b();return t?"".concat(t,"-").concat(e):e}function g(t,e){var a=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null;null!==a?e.attrs.value=a:e.attrs.hasOwnProperty("value")?e.attrs.value=e.attrs.value:e.attrs.value=t.default,e.order=t.order,e.schemaType=t.type,e.label=t.title||"",e.description=t.description||"",e.attrs.id=e.attrs.id||E(e.attrs.name),e.attrs.required=t.required||!1,e.attrs.disabled=t.disabled||!1}function O(t){var e=t.target,a=t.field,r=t.data;switch(a.schemaType){case m.BOOLEAN:return!0===e.checked;case m.STRING:return r||"";case m.NUMBER:case m.INTEGER:if(void 0!==r)return Number(r);break;case m.ARRAY:return r||[];case m.OBJECT:return r||{}}return r}function A(e,a){var t=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null,r=3<arguments.length&&void 0!==arguments[3]?arguments[3]:null;switch(e.type){case m.OBJECT:e.required instanceof Array&&e.required.forEach(function(t){e.properties[t].required=!0});var n=Object.keys(e.properties),i=e.order instanceof Array?e.order:n;i.length<n.length&&n.forEach(function(t){i.includes(t)||i.push(t)}),null===r&&(r={}),i.forEach(function(t){A(e.properties[t],a,t,r[t]||null)});break;case m.BOOLEAN:a.push(function(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:null,a=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null,r={attrs:t.attrs||{}};e&&(r.attrs.name=e);g(t,r,a),r.attrs.type||(r.attrs.type=y.CHECKBOX);r.attrs.hasOwnProperty("checked")||(r.attrs.checked=!0===t.default);return delete r.attrs.value,r}(e,t,r));break;case m.ARRAY:a.push(w(e,t,r));break;case m.INTEGER:case m.NUMBER:case m.STRING:for(var s=0;s<c.length;s++){var o=c[s];if(e.hasOwnProperty(o))return e.items={type:e.type,enum:e[o]},void a.push(w(e,t,r))}a.push(function(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:null,a=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null,r={attrs:t.attrs||{}};t.pattern&&(r.attrs.pattern=t.pattern);if(t.format)switch(t.format){case"email":r.attrs.type||(r.attrs.type=y.EMAIL);break;case"uri":r.attrs.type||(r.attrs.type=y.URL)}r.attrs.type||(r.attrs.type=d.includes(t.type)?y.NUMBER:y.TEXT);e&&(r.attrs.name=e);g(t,r,a),t.minLength&&(r.attrs.minlength=t.minLength);t.maxLength&&(r.attrs.maxlength=t.maxLength);return r}(e,t,r))}}function T(t){return t.map(function(t){return"object"!==f(t)?{value:t,label:t}:t})}var S=function(a){var r=1<arguments.length&&void 0!==arguments[1]&&arguments[1];return function(t,e){return r&&(t.name=a),t.name||(t.name=a?"".concat(a,"-"):"",t.name+=t.label.replace(/\s+/g,"-")),a&&(t.ref="".concat(a,"-").concat(e)),t.id||(t.id=E(t.name||a)),t}};function k(t){return t.items.filter(function(t){return t.checked||t.selected}).map(function(t){return t.value})}function I(t){var e=t.items.reverse().find(function(t){return t.checked||t.selected});return e?e.value:""}var R=[y.RADIO,y.CHECKBOX,y.SWITCH];function w(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:null,a=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null,r={attrs:t.attrs||{}};e&&(r.attrs.name=e),g(t,r,a),r.items=[],r.minItems=parseInt(t.minItems)||1,r.maxItems=parseInt(t.maxItems)||1e3;t:for(var n=0;n<c.length;n++){var i=c[n];if(t.hasOwnProperty(i))switch(i){case"enum":r.attrs.type||(r.attrs.type=y.SELECT),r.items=T(t[i]),void 0!==r.attrs.value&&0!==r.attrs.value.length||(r.attrs.value="array"===r.schemaType?k(r):I(r));break t;case"oneOf":r.attrs.type=y.RADIO,r.attrs.value=r.attrs.value||"",r.items=T(t[i]).map(S(e,!0)),void 0!==r.attrs.value&&0!==r.attrs.value.length||(r.attrs.value=I(r));break t;case"anyOf":r.attrs.type=y.CHECKBOX,r.attrs.value=r.attrs.value||[],r.items=T(t[i]).map(S(e)),r.isArrayField=!0,void 0!==r.attrs.value&&0!==r.attrs.value.length||(r.attrs.value=r.items.map(function(t){return t.checked?t.value:void 0}));break t}}return r.attrs.type?r.attrs.type===y.SELECT?(r.attrs.multiple=r.schemaType===m.ARRAY,r.attrs.value=r.attrs.value||r.attrs.multiple?[]:"",void 0!==r.attrs.value&&0!==r.attrs.value.length||(r.attrs.multiple?(r.isArrayField=!0,r.attrs.value=k(r)):r.attrs.value=I(r))):R.includes(r.attrs.type)||(r.isArrayField=!0):(r.isArrayField=!0,r.attrs.type=t.items&&d.includes(t.items.type)?t.items.type:y.TEXT),r}var N=[y.TEXTAREA,y.SELECT],C={functional:!0,render:function(t,e){var a=e.data,r=e.slots,n=a.field,i=[N.includes(n.attrs.type)?t(n.attrs.type,a,r().default):t("input",a)];return n.description&&i.push(t("small",n.description)),!n.label||n.isArrayField&&!N.includes(n.attrs.type)?1===i.length?i[0]:i:t(P,a,i)}},B={functional:!0,render:function(t,e){var a=e.data,r=e.slots,n=a.field.attrs.name,i=a.field.description,s=p(r().default);return i&&(s.unshift(t("legend",i)),delete a.field.description),t("fieldset",{attrs:{name:n}},s)}},j={functional:!0,render:function(t,e){var a=e.data,r=e.slots,n=[],i=a.field,s=p(r().default);return(i.attrs.required||i.attrs.placeholder)&&s.unshift(t("option",{attrs:{value:""}},i.attrs.placeholder)),n.push(t("select",a,s)),i.description&&n.push(t("small",i.description)),t(P,a,n)}},L={functional:!0,render:function(t,e){return t("div",{attrs:{"data-fs-array-inputs":!0}},(0,e.slots)().default)}},P={functional:!0,render:function(t,e){var a=e.data,r=e.slots,n=a.field;return t("div",{attrs:{"data-fs-field":n.attrs.id,"data-fs-required":n.attrs.required}},[t("label",{attrs:{for:n.attrs.id}},n.label),t("div",{attrs:{"data-fs-field-input":n.attrs.id}},r().default)])}},x={functional:!0,render:function(t,e){var a=e.data,r=e.slots,n=a.field,i=a.newItemButton,s=[];return n.isArrayField?i?(s.push(t(L,r().default)),s.push(t($,i))):s.push(t(B,a,r().default)):s.push(t("fieldset",r().default)),n.description&&s.push(t("small",n.description)),n.label?t(P,a,s):1===s.length?s[0]:s}},$={functional:!0,render:function(t,e){var a=e.data;return t("button",{attrs:h({type:"button"},a.props),on:a.on},"Add")}},V={title:"h1",description:"p",formwrapper:"div",form:"form",text:C,select:j,option:"option",fieldset:x,error:{functional:!0,render:function(t,e){return t("div",{attrs:{"data-fs-error":!0}},(0,e.slots)().default)}}},X=function(){function e(){for(var t in function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,e),this.$={},V)this.set(t,V[t])}var t,a,r;return t=e,(a=[{key:"set",value:function(t,e){this.$[t]={type:t,component:e}}},{key:"input",value:function(t){var e=t.field,a=t.fieldParent,r=void 0===a?null:a,n=t.listeners,i=void 0===n?{}:n,s=e.attrs.type;return{element:e.hasOwnProperty("items")&&F.includes(s)?this.$.fieldset:this.$[s]||this.$[y.TEXT],data:{field:e,fieldParent:r,components:this.components,attrs:h({},e.attrs),props:{type:e.attrs.type,label:e.label,value:e.attrs.value},domProps:{},on:i}}}}])&&n(t.prototype,a),r&&n(t,r),e}(),F=[y.RADIO,y.CHECKBOX,"input",y.TEXTAREA],D=(y.RADIO,y.TEXTAREA,y.SELECT,function(t,e){return"".concat(t.attrs.name,"-").concat(e)}),M={functional:!0,render:function(t,e){var a=e.data,r=e.props,n=e.slots,i=a.input,s=a.field,o=a.components,l=r.value,u=r.name,c=void 0===u?s.attrs.name:u,d=v({},i.data);return d.attrs.name=d.props.name=c,d.attrs.value=d.props.value="object"===f(l)?l[c]:l,d.components=o,t(i.element.component,d,n().default)}},H=[y.CHECKBOX,y.RADIO],U="array-button-clicked",q={functional:!0,render:function(a,t){var e=t.data,r=t.props,n=t.slots,i=t.listeners,s=e.input,o=e.field,l=e.components,u=r.value,c=n().default||[];if(o.isArrayField&&o.attrs.type!==y.SELECT){var d=o.attrs.name,f={input:s,field:o,components:l,attrs:{},props:{name:d,value:u},on:i};if(H.includes(o.attrs.type))return v(f.attrs,s.data.field.attrs),a(M,f,c);var p=s.data.attrs.id||E(d),h=Array.apply(null,Array(o.itemsNum)).map(function(t,e){return f.props.name=D(o,e),s.data.attrs["data-fs-index"]=e,s.data.attrs.id=e?p+"-"+e:p,a(M,f,c)}),m={props:{disabled:o.maxItems<=o.itemsNum},on:{click:function(t){o.itemsNum<o.maxItems&&(o.itemsNum++,U in i&&i[U](t))}}};return a(l.$.fieldset.component,{field:o,newItemButton:m,on:i},h)}return a(s.element.component,s.data,c)}},G={functional:!0,render:function(t,e){var a=e.data,r=e.props,n=e.listeners,i=a.field,s=a.components,o=r.item,l=r.value,u=r.checked,c=o.label,d=o.description,f={id:o.id,name:o.name||i.attrs.name,type:i.attrs.type,value:i.schemaType===m.BOOLEAN?void 0:o.value,checked:void 0===u?l instanceof Array?l.includes(o.value):o.value===l:u},p=s.input({field:{label:c,description:d,attrs:f},fieldParent:i,listeners:n});return t(q,{input:p,components:s,on:p.data.listeners,props:{value:f.value},field:h({},i,{label:c,description:d,attrs:f})})}},K={functional:!0,render:function(t,e){var a=e.data,r=e.props,n=a.components,i=r.option,s=r.value,o={label:i.label,attrs:{value:i.value,selected:s instanceof Array?s.includes(i.value):void 0===s?i.selected||!1:i.value===s}};return t(n.$.option.component,n.input({field:o}).data,i.label)}},z={functional:!0,render:function(e,t){var a=t.data,r=t.props,n=t.listeners,i=a.field,s=a.components,o=r.value,l=s.input({field:i,listeners:n}),u=[];switch(i.attrs.type){case y.TEXTAREA:delete l.data.attrs.type,delete l.data.attrs.value,l.data.domProps.innerHTML=o;break;case y.RADIO:case y.SWITCH:i.hasOwnProperty("items")&&i.items.forEach(function(t){u.push(e(G,{field:h({},i,{isArrayField:!1}),components:s,fieldParent:i,props:{item:t,value:o},on:n}))});break;case y.CHECKBOX:if(i.hasOwnProperty("items"))i.items.forEach(function(t){u.push(e(G,{field:i,components:s,fieldParent:i,props:{item:t,value:o},on:n}))});else if(i.schemaType===m.BOOLEAN){var c={label:i.label,id:i.attrs.id};return e(G,{field:i,components:s,props:{item:c,value:o,checked:!0===o},on:n})}break;case y.SELECT:var d=p(i.items);delete l.data.attrs.type,delete l.data.attrs.value,d.forEach(function(t){u.push(e(K,{field:i,components:s,props:{option:t,value:o},on:n}))})}return e(q,{input:l,field:i,components:s,props:{value:o},on:n},u)}},Y=X,_=E,J=Object.freeze(o),W={components:new Y},Q=e,Z=v,tt=a,et=r,at=s,rt={name:"FormSchema",props:{schema:{type:Object,default:function(){return{}}},value:{type:[Number,String,Array,Object,Boolean],default:void 0},action:{type:String},autocomplete:{type:String},enctype:{type:String,default:"application/x-www-form-urlencoded"},method:{type:String,default:"post"},novalidate:{type:Boolean},components:{type:Y,default:function(){return W.components}}},data:function(){return{ref:E("form-schema"),isScalarSchema:!1,loadedSchema:{},fields:[],default:{},error:null,data:{},inputValues:{},ready:!1}},created:function(){at(this.schema)||this.load(this.schema,this.value,!1)},render:function(a){var s=this;if(!this.ready||0===this.fields.length)return null;var t=this.loadedSchema,e=t.title,r=t.description,n=this.components,i=[];e&&i.push(a(n.$.title.component,e)),r&&i.push(a(n.$.description.component,r)),this.error&&i.push(a(n.$.error.component,this.error));var o=this.fields.map(function(i){var t,e=s.isScalarSchema?s.data:s.data[i.attrs.name];return a(z,{field:i,components:n,props:{value:e},on:(t={},l(t,U,function(){s.$forceUpdate()}),l(t,"input",function(t){var e=t.target,a=t.target.value,r={field:i,data:a,target:e};if(i.isArrayField)s.parseArrayValue(r);else{var n=O(r);s.isScalarSchema?s.data=n:s.data[i.attrs.name]=n}s.emitInputEvent()}),l(t,"change",function(t){var e=t.target,a=t.target.value,r={field:i,data:a,target:e};if(i.isArrayField)s.parseArrayValue(r);else{var n=O(r);s.isScalarSchema?s.data=n:s.data[i.attrs.name]=n}Q(s.data,s.default)||s.$emit("change",s.data)}),t)})});return this.$slots.default&&this.$slots.default.forEach(function(t){return o.push(t)}),i.push(a(n.$.form.component,{ref:this.ref,attrs:{action:this.action,enctype:this.enctype,method:this.method,autocomplete:this.autocomplete,novalidate:this.novalidate},props:{value:this.data},on:{reset:this.reset,submit:this.submit,invalid:this.invalid}},o)),a(n.$.formwrapper.component,{attrs:{id:this.ref}},i)},methods:{load:function(t){var e,a,r,o,n=this,i=1<arguments.length&&void 0!==arguments[1]?arguments[1]:this.value,s=!(2<arguments.length&&void 0!==arguments[2])||arguments[2];switch(this.ready=!1,this.fields.splice(0),et(this.inputValues),et(this.loadedSchema),Z(this.loadedSchema,t),A(this.loadedSchema,this.fields,null,i),t.type){case"array":case"object":this.data=(e=t,a=this.fields,r=i,o=e.type===m.OBJECT?{}:[],r&&v(o,r),a.forEach(function(t){var e=t.attrs,a=e.type,r=e.name,n=t.schemaType===m.BOOLEAN?"boolean"==typeof o[r]?o[r]:!0===t.attrs.checked:void 0!==o[r]?o[r]:t.attrs.value,i={},s={field:t,data:n,target:i};switch(t.schemaType){case m.BOOLEAN:i.checked=n,o[r]=O(s);break;default:t.isArrayField?(o[r]instanceof Array?o[r]=o[r].filter(function(t){return void 0!==t}):o[r]=[],t.itemsNum=a===y.CHECKBOX?t.items.length:t.minItems):o[r]=O(s)}}),o),this.parseDefaultArrayValue(),this.default=Object.freeze(tt(this.data)),this.isScalarSchema=!1;break;default:this.data=function(t,e,a){if(void 0!==a&&u(a))return a;if(e.length){if(e[0].schemaType===m.BOOLEAN)return!0===e[0].attrs.checked;if(e[0].attrs.hasOwnProperty("value"))return e[0].attrs.value}}(0,this.fields,i),this.default=this.data,this.isScalarSchema=!0}this.emitInputEvent(),this.ready=!0,s&&this.$nextTick(function(){return n.reset()})},parseDefaultArrayValue:function(){var n=this;this.fields.forEach(function(a){if(a.isArrayField){var t=a.attrs,e=t.type,r=t.name;n.data[r]instanceof Array&&(n.data[r]=n.data[r].filter(function(t,e){return void 0!==(n.inputValues[D(a,e)]=t)})),a.itemsNum="checkbox"===e?a.items.length:a.minItems}})},emitInputEvent:function(){this.$emit("input",this.data)},parseArrayValue:function(t){if("checkbox"===t.field.attrs.type)if(t.target.checked)this.data[t.field.attrs.name].includes(t.data)||this.data[t.field.attrs.name].push(t.data);else{var e=this.data[t.field.attrs.name].indexOf(t.data);-1<e&&this.data[t.field.attrs.name].splice(e,1)}else{var a=t.target.getAttribute("data-fs-index"),r=D(t.field,a);this.inputValues[r]=d.includes(t.field.attrs.type)?Number(t.data):t.data;for(var n=[],i=0;i<t.field.itemsNum;i++){var s=this.inputValues[D(t.field,i)];(s||0===s)&&n.push(s)}this.data[t.field.attrs.name]=n}},form:function(){return this.$refs[this.ref]},reportValidity:function(){for(var t=this.form().elements,e=!0,a=0;a<t.length;a++)"checkValidity"in t[a]&&(e=e&&t[a].checkValidity());return e},checkValidity:function(){return this.reportValidity()},invalid:function(t){this.$emit("invalid",t)},reset:function(){var r=this;et(this.inputValues),this.fields.forEach(function(a){var t=a.attrs.name;r.$set(r.data,t,r.default[t]),a.isArrayField&&r.data[t].forEach(function(t,e){r.inputValues[D(a,e)]=t})});var t=this.form();"reset"in t&&t.reset()},submit:function(t){this.checkValidity()&&this.$emit("submit",t)},setErrorMessage:function(t){this.error=t},clearErrorMessage:function(){this.error=null}}};t.Components=Y,t.generateId=_,t.ObjectUtils=J,t.ARRAY_INPUT_ADDED_EVENT="array-button-clicked",t.GLOBAL=W,t.default=rt,Object.defineProperty(t,"__esModule",{value:!0})});
+//# sourceMappingURL=FormSchema.umd.min.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/index.js":
+/*!*************************************!*\
+  !*** ./node_modules/axios/index.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./lib/axios */ "./node_modules/axios/lib/axios.js");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/adapters/xhr.js":
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/adapters/xhr.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var settle = __webpack_require__(/*! ./../core/settle */ "./node_modules/axios/lib/core/settle.js");
+var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ "./node_modules/axios/lib/helpers/buildURL.js");
+var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ "./node_modules/axios/lib/helpers/parseHeaders.js");
+var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ "./node_modules/axios/lib/helpers/isURLSameOrigin.js");
+var createError = __webpack_require__(/*! ../core/createError */ "./node_modules/axios/lib/core/createError.js");
+
+module.exports = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+    var requestData = config.data;
+    var requestHeaders = config.headers;
+
+    if (utils.isFormData(requestData)) {
+      delete requestHeaders['Content-Type']; // Let the browser set it
+    }
+
+    var request = new XMLHttpRequest();
+
+    // HTTP basic authentication
+    if (config.auth) {
+      var username = config.auth.username || '';
+      var password = config.auth.password || '';
+      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+    }
+
+    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+
+    // Set the request timeout in MS
+    request.timeout = config.timeout;
+
+    // Listen for ready state
+    request.onreadystatechange = function handleLoad() {
+      if (!request || request.readyState !== 4) {
+        return;
+      }
+
+      // The request errored out and we didn't get a response, this will be
+      // handled by onerror instead
+      // With one exception: request that using file: protocol, most browsers
+      // will return status as 0 even though it's a successful request
+      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+        return;
+      }
+
+      // Prepare the response
+      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+      var response = {
+        data: responseData,
+        status: request.status,
+        statusText: request.statusText,
+        headers: responseHeaders,
+        config: config,
+        request: request
+      };
+
+      settle(resolve, reject, response);
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle low level network errors
+    request.onerror = function handleError() {
+      // Real errors are hidden from us by the browser
+      // onerror should only fire if it's a network error
+      reject(createError('Network Error', config, null, request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle timeout
+    request.ontimeout = function handleTimeout() {
+      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
+        request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Add xsrf header
+    // This is only done if running in a standard browser environment.
+    // Specifically not if we're in a web worker, or react-native.
+    if (utils.isStandardBrowserEnv()) {
+      var cookies = __webpack_require__(/*! ./../helpers/cookies */ "./node_modules/axios/lib/helpers/cookies.js");
+
+      // Add xsrf header
+      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
+          cookies.read(config.xsrfCookieName) :
+          undefined;
+
+      if (xsrfValue) {
+        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+      }
+    }
+
+    // Add headers to the request
+    if ('setRequestHeader' in request) {
+      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+          // Remove Content-Type if data is undefined
+          delete requestHeaders[key];
+        } else {
+          // Otherwise add header to the request
+          request.setRequestHeader(key, val);
+        }
+      });
+    }
+
+    // Add withCredentials to request if needed
+    if (config.withCredentials) {
+      request.withCredentials = true;
+    }
+
+    // Add responseType to request if needed
+    if (config.responseType) {
+      try {
+        request.responseType = config.responseType;
+      } catch (e) {
+        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+        if (config.responseType !== 'json') {
+          throw e;
+        }
+      }
+    }
+
+    // Handle progress if needed
+    if (typeof config.onDownloadProgress === 'function') {
+      request.addEventListener('progress', config.onDownloadProgress);
+    }
+
+    // Not all browsers support upload events
+    if (typeof config.onUploadProgress === 'function' && request.upload) {
+      request.upload.addEventListener('progress', config.onUploadProgress);
+    }
+
+    if (config.cancelToken) {
+      // Handle cancellation
+      config.cancelToken.promise.then(function onCanceled(cancel) {
+        if (!request) {
+          return;
+        }
+
+        request.abort();
+        reject(cancel);
+        // Clean up request
+        request = null;
+      });
+    }
+
+    if (requestData === undefined) {
+      requestData = null;
+    }
+
+    // Send the request
+    request.send(requestData);
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/axios.js":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/axios.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/axios/lib/utils.js");
+var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
+var Axios = __webpack_require__(/*! ./core/Axios */ "./node_modules/axios/lib/core/Axios.js");
+var defaults = __webpack_require__(/*! ./defaults */ "./node_modules/axios/lib/defaults.js");
+
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  var context = new Axios(defaultConfig);
+  var instance = bind(Axios.prototype.request, context);
+
+  // Copy axios.prototype to instance
+  utils.extend(instance, Axios.prototype, context);
+
+  // Copy context to instance
+  utils.extend(instance, context);
+
+  return instance;
+}
+
+// Create the default instance to be exported
+var axios = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+axios.Axios = Axios;
+
+// Factory for creating new instances
+axios.create = function create(instanceConfig) {
+  return createInstance(utils.merge(defaults, instanceConfig));
+};
+
+// Expose Cancel & CancelToken
+axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ "./node_modules/axios/lib/cancel/Cancel.js");
+axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ "./node_modules/axios/lib/cancel/CancelToken.js");
+axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ "./node_modules/axios/lib/cancel/isCancel.js");
+
+// Expose all/spread
+axios.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios.spread = __webpack_require__(/*! ./helpers/spread */ "./node_modules/axios/lib/helpers/spread.js");
+
+module.exports = axios;
+
+// Allow use of default import syntax in TypeScript
+module.exports.default = axios;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/Cancel.js":
+/*!*************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A `Cancel` is an object that is thrown when an operation is canceled.
+ *
+ * @class
+ * @param {string=} message The message.
+ */
+function Cancel(message) {
+  this.message = message;
+}
+
+Cancel.prototype.toString = function toString() {
+  return 'Cancel' + (this.message ? ': ' + this.message : '');
+};
+
+Cancel.prototype.__CANCEL__ = true;
+
+module.exports = Cancel;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/CancelToken.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Cancel = __webpack_require__(/*! ./Cancel */ "./node_modules/axios/lib/cancel/Cancel.js");
+
+/**
+ * A `CancelToken` is an object that can be used to request cancellation of an operation.
+ *
+ * @class
+ * @param {Function} executor The executor function.
+ */
+function CancelToken(executor) {
+  if (typeof executor !== 'function') {
+    throw new TypeError('executor must be a function.');
+  }
+
+  var resolvePromise;
+  this.promise = new Promise(function promiseExecutor(resolve) {
+    resolvePromise = resolve;
+  });
+
+  var token = this;
+  executor(function cancel(message) {
+    if (token.reason) {
+      // Cancellation has already been requested
+      return;
+    }
+
+    token.reason = new Cancel(message);
+    resolvePromise(token.reason);
+  });
+}
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+  if (this.reason) {
+    throw this.reason;
+  }
+};
+
+/**
+ * Returns an object that contains a new `CancelToken` and a function that, when called,
+ * cancels the `CancelToken`.
+ */
+CancelToken.source = function source() {
+  var cancel;
+  var token = new CancelToken(function executor(c) {
+    cancel = c;
+  });
+  return {
+    token: token,
+    cancel: cancel
+  };
+};
+
+module.exports = CancelToken;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/isCancel.js":
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function isCancel(value) {
+  return !!(value && value.__CANCEL__);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/Axios.js":
+/*!**********************************************!*\
+  !*** ./node_modules/axios/lib/core/Axios.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var defaults = __webpack_require__(/*! ./../defaults */ "./node_modules/axios/lib/defaults.js");
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ "./node_modules/axios/lib/core/InterceptorManager.js");
+var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ "./node_modules/axios/lib/core/dispatchRequest.js");
+
+/**
+ * Create a new instance of Axios
+ *
+ * @param {Object} instanceConfig The default config for the instance
+ */
+function Axios(instanceConfig) {
+  this.defaults = instanceConfig;
+  this.interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager()
+  };
+}
+
+/**
+ * Dispatch a request
+ *
+ * @param {Object} config The config specific for this request (merged with this.defaults)
+ */
+Axios.prototype.request = function request(config) {
+  /*eslint no-param-reassign:0*/
+  // Allow for axios('example/url'[, config]) a la fetch API
+  if (typeof config === 'string') {
+    config = utils.merge({
+      url: arguments[0]
+    }, arguments[1]);
+  }
+
+  config = utils.merge(defaults, {method: 'get'}, this.defaults, config);
+  config.method = config.method.toLowerCase();
+
+  // Hook up interceptors middleware
+  var chain = [dispatchRequest, undefined];
+  var promise = Promise.resolve(config);
+
+  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+    chain.push(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  while (chain.length) {
+    promise = promise.then(chain.shift(), chain.shift());
+  }
+
+  return promise;
+};
+
+// Provide aliases for supported request methods
+utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url
+    }));
+  };
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, data, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url,
+      data: data
+    }));
+  };
+});
+
+module.exports = Axios;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/InterceptorManager.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+function InterceptorManager() {
+  this.handlers = [];
+}
+
+/**
+ * Add a new interceptor to the stack
+ *
+ * @param {Function} fulfilled The function to handle `then` for a `Promise`
+ * @param {Function} rejected The function to handle `reject` for a `Promise`
+ *
+ * @return {Number} An ID used to remove interceptor later
+ */
+InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+  this.handlers.push({
+    fulfilled: fulfilled,
+    rejected: rejected
+  });
+  return this.handlers.length - 1;
+};
+
+/**
+ * Remove an interceptor from the stack
+ *
+ * @param {Number} id The ID that was returned by `use`
+ */
+InterceptorManager.prototype.eject = function eject(id) {
+  if (this.handlers[id]) {
+    this.handlers[id] = null;
+  }
+};
+
+/**
+ * Iterate over all the registered interceptors
+ *
+ * This method is particularly useful for skipping over any
+ * interceptors that may have become `null` calling `eject`.
+ *
+ * @param {Function} fn The function to call for each interceptor
+ */
+InterceptorManager.prototype.forEach = function forEach(fn) {
+  utils.forEach(this.handlers, function forEachHandler(h) {
+    if (h !== null) {
+      fn(h);
+    }
+  });
+};
+
+module.exports = InterceptorManager;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/createError.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/core/createError.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var enhanceError = __webpack_require__(/*! ./enhanceError */ "./node_modules/axios/lib/core/enhanceError.js");
+
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */
+module.exports = function createError(message, config, code, request, response) {
+  var error = new Error(message);
+  return enhanceError(error, config, code, request, response);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/dispatchRequest.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var transformData = __webpack_require__(/*! ./transformData */ "./node_modules/axios/lib/core/transformData.js");
+var isCancel = __webpack_require__(/*! ../cancel/isCancel */ "./node_modules/axios/lib/cancel/isCancel.js");
+var defaults = __webpack_require__(/*! ../defaults */ "./node_modules/axios/lib/defaults.js");
+var isAbsoluteURL = __webpack_require__(/*! ./../helpers/isAbsoluteURL */ "./node_modules/axios/lib/helpers/isAbsoluteURL.js");
+var combineURLs = __webpack_require__(/*! ./../helpers/combineURLs */ "./node_modules/axios/lib/helpers/combineURLs.js");
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+function throwIfCancellationRequested(config) {
+  if (config.cancelToken) {
+    config.cancelToken.throwIfRequested();
+  }
+}
+
+/**
+ * Dispatch a request to the server using the configured adapter.
+ *
+ * @param {object} config The config that is to be used for the request
+ * @returns {Promise} The Promise to be fulfilled
+ */
+module.exports = function dispatchRequest(config) {
+  throwIfCancellationRequested(config);
+
+  // Support baseURL config
+  if (config.baseURL && !isAbsoluteURL(config.url)) {
+    config.url = combineURLs(config.baseURL, config.url);
+  }
+
+  // Ensure headers exist
+  config.headers = config.headers || {};
+
+  // Transform request data
+  config.data = transformData(
+    config.data,
+    config.headers,
+    config.transformRequest
+  );
+
+  // Flatten headers
+  config.headers = utils.merge(
+    config.headers.common || {},
+    config.headers[config.method] || {},
+    config.headers || {}
+  );
+
+  utils.forEach(
+    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+    function cleanHeaderConfig(method) {
+      delete config.headers[method];
+    }
+  );
+
+  var adapter = config.adapter || defaults.adapter;
+
+  return adapter(config).then(function onAdapterResolution(response) {
+    throwIfCancellationRequested(config);
+
+    // Transform response data
+    response.data = transformData(
+      response.data,
+      response.headers,
+      config.transformResponse
+    );
+
+    return response;
+  }, function onAdapterRejection(reason) {
+    if (!isCancel(reason)) {
+      throwIfCancellationRequested(config);
+
+      // Transform response data
+      if (reason && reason.response) {
+        reason.response.data = transformData(
+          reason.response.data,
+          reason.response.headers,
+          config.transformResponse
+        );
+      }
+    }
+
+    return Promise.reject(reason);
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/enhanceError.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/axios/lib/core/enhanceError.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Update an Error with the specified config, error code, and response.
+ *
+ * @param {Error} error The error to update.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The error.
+ */
+module.exports = function enhanceError(error, config, code, request, response) {
+  error.config = config;
+  if (code) {
+    error.code = code;
+  }
+  error.request = request;
+  error.response = response;
+  return error;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/settle.js":
+/*!***********************************************!*\
+  !*** ./node_modules/axios/lib/core/settle.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var createError = __webpack_require__(/*! ./createError */ "./node_modules/axios/lib/core/createError.js");
+
+/**
+ * Resolve or reject a Promise based on response status.
+ *
+ * @param {Function} resolve A function that resolves the promise.
+ * @param {Function} reject A function that rejects the promise.
+ * @param {object} response The response.
+ */
+module.exports = function settle(resolve, reject, response) {
+  var validateStatus = response.config.validateStatus;
+  // Note: status is not exposed by XDomainRequest
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
+    resolve(response);
+  } else {
+    reject(createError(
+      'Request failed with status code ' + response.status,
+      response.config,
+      null,
+      response.request,
+      response
+    ));
+  }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/transformData.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/transformData.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+/**
+ * Transform the data for a request or a response
+ *
+ * @param {Object|String} data The data to be transformed
+ * @param {Array} headers The headers for the request or response
+ * @param {Array|Function} fns A single function or Array of functions
+ * @returns {*} The resulting transformed data
+ */
+module.exports = function transformData(data, headers, fns) {
+  /*eslint no-param-reassign:0*/
+  utils.forEach(fns, function transform(fn) {
+    data = fn(data, headers);
+  });
+
+  return data;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/defaults.js":
+/*!********************************************!*\
+  !*** ./node_modules/axios/lib/defaults.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/axios/lib/utils.js");
+var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ "./node_modules/axios/lib/helpers/normalizeHeaderName.js");
+
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(/*! ./adapters/xhr */ "./node_modules/axios/lib/adapters/xhr.js");
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(/*! ./adapters/http */ "./node_modules/axios/lib/adapters/xhr.js");
+  }
+  return adapter;
+}
+
+var defaults = {
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
+
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
+
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
+
+module.exports = defaults;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/bind.js":
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/bind.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function bind(fn, thisArg) {
+  return function wrap() {
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+    return fn.apply(thisArg, args);
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/buildURL.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+function encode(val) {
+  return encodeURIComponent(val).
+    replace(/%40/gi, '@').
+    replace(/%3A/gi, ':').
+    replace(/%24/g, '$').
+    replace(/%2C/gi, ',').
+    replace(/%20/g, '+').
+    replace(/%5B/gi, '[').
+    replace(/%5D/gi, ']');
+}
+
+/**
+ * Build a URL by appending params to the end
+ *
+ * @param {string} url The base of the url (e.g., http://www.google.com)
+ * @param {object} [params] The params to be appended
+ * @returns {string} The formatted url
+ */
+module.exports = function buildURL(url, params, paramsSerializer) {
+  /*eslint no-param-reassign:0*/
+  if (!params) {
+    return url;
+  }
+
+  var serializedParams;
+  if (paramsSerializer) {
+    serializedParams = paramsSerializer(params);
+  } else if (utils.isURLSearchParams(params)) {
+    serializedParams = params.toString();
+  } else {
+    var parts = [];
+
+    utils.forEach(params, function serialize(val, key) {
+      if (val === null || typeof val === 'undefined') {
+        return;
+      }
+
+      if (utils.isArray(val)) {
+        key = key + '[]';
+      } else {
+        val = [val];
+      }
+
+      utils.forEach(val, function parseValue(v) {
+        if (utils.isDate(v)) {
+          v = v.toISOString();
+        } else if (utils.isObject(v)) {
+          v = JSON.stringify(v);
+        }
+        parts.push(encode(key) + '=' + encode(v));
+      });
+    });
+
+    serializedParams = parts.join('&');
+  }
+
+  if (serializedParams) {
+    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  }
+
+  return url;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/combineURLs.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a new URL by combining the specified URLs
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} relativeURL The relative URL
+ * @returns {string} The combined URL
+ */
+module.exports = function combineURLs(baseURL, relativeURL) {
+  return relativeURL
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    : baseURL;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/cookies.js":
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/cookies.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs support document.cookie
+  (function standardBrowserEnv() {
+    return {
+      write: function write(name, value, expires, path, domain, secure) {
+        var cookie = [];
+        cookie.push(name + '=' + encodeURIComponent(value));
+
+        if (utils.isNumber(expires)) {
+          cookie.push('expires=' + new Date(expires).toGMTString());
+        }
+
+        if (utils.isString(path)) {
+          cookie.push('path=' + path);
+        }
+
+        if (utils.isString(domain)) {
+          cookie.push('domain=' + domain);
+        }
+
+        if (secure === true) {
+          cookie.push('secure');
+        }
+
+        document.cookie = cookie.join('; ');
+      },
+
+      read: function read(name) {
+        var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+        return (match ? decodeURIComponent(match[3]) : null);
+      },
+
+      remove: function remove(name) {
+        this.write(name, '', Date.now() - 86400000);
+      }
+    };
+  })() :
+
+  // Non standard browser env (web workers, react-native) lack needed support.
+  (function nonStandardBrowserEnv() {
+    return {
+      write: function write() {},
+      read: function read() { return null; },
+      remove: function remove() {}
+    };
+  })()
+);
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isAbsoluteURL.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Determines whether the specified URL is absolute
+ *
+ * @param {string} url The URL to test
+ * @returns {boolean} True if the specified URL is absolute, otherwise false
+ */
+module.exports = function isAbsoluteURL(url) {
+  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  // by any combination of letters, digits, plus, period, or hyphen.
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs have full support of the APIs needed to test
+  // whether the request URL is of the same origin as current location.
+  (function standardBrowserEnv() {
+    var msie = /(msie|trident)/i.test(navigator.userAgent);
+    var urlParsingNode = document.createElement('a');
+    var originURL;
+
+    /**
+    * Parse a URL to discover it's components
+    *
+    * @param {String} url The URL to be parsed
+    * @returns {Object}
+    */
+    function resolveURL(url) {
+      var href = url;
+
+      if (msie) {
+        // IE needs attribute set twice to normalize properties
+        urlParsingNode.setAttribute('href', href);
+        href = urlParsingNode.href;
+      }
+
+      urlParsingNode.setAttribute('href', href);
+
+      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+      return {
+        href: urlParsingNode.href,
+        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+        host: urlParsingNode.host,
+        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+        hostname: urlParsingNode.hostname,
+        port: urlParsingNode.port,
+        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+                  urlParsingNode.pathname :
+                  '/' + urlParsingNode.pathname
+      };
+    }
+
+    originURL = resolveURL(window.location.href);
+
+    /**
+    * Determine if a URL shares the same origin as the current location
+    *
+    * @param {String} requestURL The URL to test
+    * @returns {boolean} True if URL shares the same origin, otherwise false
+    */
+    return function isURLSameOrigin(requestURL) {
+      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+      return (parsed.protocol === originURL.protocol &&
+            parsed.host === originURL.host);
+    };
+  })() :
+
+  // Non standard browser envs (web workers, react-native) lack needed support.
+  (function nonStandardBrowserEnv() {
+    return function isURLSameOrigin() {
+      return true;
+    };
+  })()
+);
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/normalizeHeaderName.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ../utils */ "./node_modules/axios/lib/utils.js");
+
+module.exports = function normalizeHeaderName(headers, normalizedName) {
+  utils.forEach(headers, function processHeader(value, name) {
+    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+      headers[normalizedName] = value;
+      delete headers[name];
+    }
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/parseHeaders.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var ignoreDuplicateOf = [
+  'age', 'authorization', 'content-length', 'content-type', 'etag',
+  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+  'referer', 'retry-after', 'user-agent'
+];
+
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */
+module.exports = function parseHeaders(headers) {
+  var parsed = {};
+  var key;
+  var val;
+  var i;
+
+  if (!headers) { return parsed; }
+
+  utils.forEach(headers.split('\n'), function parser(line) {
+    i = line.indexOf(':');
+    key = utils.trim(line.substr(0, i)).toLowerCase();
+    val = utils.trim(line.substr(i + 1));
+
+    if (key) {
+      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+        return;
+      }
+      if (key === 'set-cookie') {
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+      } else {
+        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+      }
+    }
+  });
+
+  return parsed;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/spread.js":
+/*!**************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/spread.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Syntactic sugar for invoking a function and expanding an array for arguments.
+ *
+ * Common use case would be to use `Function.prototype.apply`.
+ *
+ *  ```js
+ *  function f(x, y, z) {}
+ *  var args = [1, 2, 3];
+ *  f.apply(null, args);
+ *  ```
+ *
+ * With `spread` this example can be re-written.
+ *
+ *  ```js
+ *  spread(function(x, y, z) {})([1, 2, 3]);
+ *  ```
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+module.exports = function spread(callback) {
+  return function wrap(arr) {
+    return callback.apply(null, arr);
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/utils.js":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/utils.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
+var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/is-buffer/index.js");
+
+/*global toString:true*/
+
+// utils is a library of generic helper functions non-specific to axios
+
+var toString = Object.prototype.toString;
+
+/**
+ * Determine if a value is an Array
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Array, otherwise false
+ */
+function isArray(val) {
+  return toString.call(val) === '[object Array]';
+}
+
+/**
+ * Determine if a value is an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+ */
+function isArrayBuffer(val) {
+  return toString.call(val) === '[object ArrayBuffer]';
+}
+
+/**
+ * Determine if a value is a FormData
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an FormData, otherwise false
+ */
+function isFormData(val) {
+  return (typeof FormData !== 'undefined') && (val instanceof FormData);
+}
+
+/**
+ * Determine if a value is a view on an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+ */
+function isArrayBufferView(val) {
+  var result;
+  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+    result = ArrayBuffer.isView(val);
+  } else {
+    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
+  }
+  return result;
+}
+
+/**
+ * Determine if a value is a String
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a String, otherwise false
+ */
+function isString(val) {
+  return typeof val === 'string';
+}
+
+/**
+ * Determine if a value is a Number
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Number, otherwise false
+ */
+function isNumber(val) {
+  return typeof val === 'number';
+}
+
+/**
+ * Determine if a value is undefined
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if the value is undefined, otherwise false
+ */
+function isUndefined(val) {
+  return typeof val === 'undefined';
+}
+
+/**
+ * Determine if a value is an Object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Object, otherwise false
+ */
+function isObject(val) {
+  return val !== null && typeof val === 'object';
+}
+
+/**
+ * Determine if a value is a Date
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Date, otherwise false
+ */
+function isDate(val) {
+  return toString.call(val) === '[object Date]';
+}
+
+/**
+ * Determine if a value is a File
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a File, otherwise false
+ */
+function isFile(val) {
+  return toString.call(val) === '[object File]';
+}
+
+/**
+ * Determine if a value is a Blob
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Blob, otherwise false
+ */
+function isBlob(val) {
+  return toString.call(val) === '[object Blob]';
+}
+
+/**
+ * Determine if a value is a Function
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Function, otherwise false
+ */
+function isFunction(val) {
+  return toString.call(val) === '[object Function]';
+}
+
+/**
+ * Determine if a value is a Stream
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Stream, otherwise false
+ */
+function isStream(val) {
+  return isObject(val) && isFunction(val.pipe);
+}
+
+/**
+ * Determine if a value is a URLSearchParams object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+ */
+function isURLSearchParams(val) {
+  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+}
+
+/**
+ * Trim excess whitespace off the beginning and end of a string
+ *
+ * @param {String} str The String to trim
+ * @returns {String} The String freed of excess whitespace
+ */
+function trim(str) {
+  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+}
+
+/**
+ * Determine if we're running in a standard browser environment
+ *
+ * This allows axios to run in a web worker, and react-native.
+ * Both environments support XMLHttpRequest, but not fully standard globals.
+ *
+ * web workers:
+ *  typeof window -> undefined
+ *  typeof document -> undefined
+ *
+ * react-native:
+ *  navigator.product -> 'ReactNative'
+ */
+function isStandardBrowserEnv() {
+  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
+    return false;
+  }
+  return (
+    typeof window !== 'undefined' &&
+    typeof document !== 'undefined'
+  );
+}
+
+/**
+ * Iterate over an Array or an Object invoking a function for each item.
+ *
+ * If `obj` is an Array callback will be called passing
+ * the value, index, and complete array for each item.
+ *
+ * If 'obj' is an Object callback will be called passing
+ * the value, key, and complete object for each property.
+ *
+ * @param {Object|Array} obj The object to iterate
+ * @param {Function} fn The callback to invoke for each item
+ */
+function forEach(obj, fn) {
+  // Don't bother if no value provided
+  if (obj === null || typeof obj === 'undefined') {
+    return;
+  }
+
+  // Force an array if not already something iterable
+  if (typeof obj !== 'object') {
+    /*eslint no-param-reassign:0*/
+    obj = [obj];
+  }
+
+  if (isArray(obj)) {
+    // Iterate over array values
+    for (var i = 0, l = obj.length; i < l; i++) {
+      fn.call(null, obj[i], i, obj);
+    }
+  } else {
+    // Iterate over object keys
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        fn.call(null, obj[key], key, obj);
+      }
+    }
+  }
+}
+
+/**
+ * Accepts varargs expecting each argument to be an object, then
+ * immutably merges the properties of each object and returns result.
+ *
+ * When multiple objects contain the same key the later object in
+ * the arguments list will take precedence.
+ *
+ * Example:
+ *
+ * ```js
+ * var result = merge({foo: 123}, {foo: 456});
+ * console.log(result.foo); // outputs 456
+ * ```
+ *
+ * @param {Object} obj1 Object to merge
+ * @returns {Object} Result of all merge properties
+ */
+function merge(/* obj1, obj2, obj3, ... */) {
+  var result = {};
+  function assignValue(val, key) {
+    if (typeof result[key] === 'object' && typeof val === 'object') {
+      result[key] = merge(result[key], val);
+    } else {
+      result[key] = val;
+    }
+  }
+
+  for (var i = 0, l = arguments.length; i < l; i++) {
+    forEach(arguments[i], assignValue);
+  }
+  return result;
+}
+
+/**
+ * Extends object a by mutably adding to it the properties of object b.
+ *
+ * @param {Object} a The object to be extended
+ * @param {Object} b The object to copy properties from
+ * @param {Object} thisArg The object to bind function to
+ * @return {Object} The resulting value of object a
+ */
+function extend(a, b, thisArg) {
+  forEach(b, function assignValue(val, key) {
+    if (thisArg && typeof val === 'function') {
+      a[key] = bind(val, thisArg);
+    } else {
+      a[key] = val;
+    }
+  });
+  return a;
+}
+
+module.exports = {
+  isArray: isArray,
+  isArrayBuffer: isArrayBuffer,
+  isBuffer: isBuffer,
+  isFormData: isFormData,
+  isArrayBufferView: isArrayBufferView,
+  isString: isString,
+  isNumber: isNumber,
+  isObject: isObject,
+  isUndefined: isUndefined,
+  isDate: isDate,
+  isFile: isFile,
+  isBlob: isBlob,
+  isFunction: isFunction,
+  isStream: isStream,
+  isURLSearchParams: isURLSearchParams,
+  isStandardBrowserEnv: isStandardBrowserEnv,
+  forEach: forEach,
+  merge: merge,
+  extend: extend,
+  trim: trim
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FormRenderer.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FormRenderer.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _formschema_native__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @formschema/native */ "./node_modules/@formschema/native/dist/FormSchema.umd.min.js");
+/* harmony import */ var _formschema_native__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_formschema_native__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    'formsource': {
+      type: String,
+      "default": function _default() {
+        return null;
+      }
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/forms/' + this.formsource).then(function (_ref) {
+      var data = _ref.data;
+
+      _this.$refs.formSchema.load(data);
+    });
+  },
+  components: {
+    FormSchema: _formschema_native__WEBPACK_IMPORTED_MODULE_1___default.a
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GoogleMap.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GoogleMap.vue?vue&type=script&lang=js& ***!
@@ -131,6 +1792,12 @@ var marker = "";
       "default": function _default() {
         return 8;
       }
+    },
+    'geosource': {
+      type: String,
+      "default": function _default() {
+        return null;
+      }
     }
   },
   mounted: function mounted() {
@@ -145,7 +1812,7 @@ var marker = "";
     var markers = null;
     var markerCluster = null;
     var lastOpen = null;
-    this.$map.data.loadGeoJson('/data/eikenprocessierups', null, function (features) {
+    this.$map.data.loadGeoJson('/data/' + this.geosource, null, function (features) {
       markers = features.map(function (feature) {
         var g = feature.getGeometry();
         var marker = new google.maps.Marker({
@@ -244,6 +1911,7 @@ var marker = "";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FormRenderer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FormRenderer */ "./resources/js/components/FormRenderer.vue");
 //
 //
 //
@@ -259,6 +1927,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -268,6 +1938,17 @@ __webpack_require__.r(__webpack_exports__);
       icon: "add",
       btnText: "Voeg uw locatie toe"
     };
+  },
+  props: {
+    'formsource': {
+      type: String,
+      "default": function _default() {
+        return null;
+      }
+    }
+  },
+  components: {
+    FormRenderer: _FormRenderer__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   mounted: function mounted() {
     var input = document.getElementById('pac-input');
@@ -433,6 +2114,28 @@ function toComment(sourceMap) {
 	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
 
 	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/is-buffer/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/is-buffer/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+module.exports = function isBuffer (obj) {
+  return obj != null && obj.constructor != null &&
+    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
 }
 
 
@@ -1475,6 +3178,30 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FormRenderer.vue?vue&type=template&id=8faa13dc&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/FormRenderer.vue?vue&type=template&id=8faa13dc& ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("FormSchema", { ref: "formSchema" })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/GoogleMap.vue?vue&type=template&id=70fcb908&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/GoogleMap.vue?vue&type=template&id=70fcb908&scoped=true& ***!
@@ -1521,24 +3248,34 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "map-controls" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("span", { staticClass: "add-marker" }, [
-      _c(
-        "button",
-        { staticClass: "btn waves-light", on: { click: _vm.addMarker } },
-        [
-          _c("i", { staticClass: "material-icons" }, [
-            _vm._v(_vm._s(_vm.icon))
-          ]),
-          _c("span", { staticClass: "inner" }, [
-            _vm._v(" " + _vm._s(_vm.btnText) + " ")
-          ])
-        ]
-      )
-    ])
-  ])
+  return _c(
+    "div",
+    { staticClass: "map-controls" },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("span", { staticClass: "add-marker" }, [
+        _c(
+          "button",
+          { staticClass: "btn waves-light", on: { click: _vm.addMarker } },
+          [
+            _c("i", { staticClass: "material-icons" }, [
+              _vm._v(_vm._s(_vm.icon))
+            ]),
+            _c("span", { staticClass: "inner" }, [
+              _vm._v(" " + _vm._s(_vm.btnText) + " ")
+            ])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("form-renderer", {
+        staticStyle: { display: "none" },
+        attrs: { formsource: _vm.formsource }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -13707,14 +15444,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_GoogleMap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/GoogleMap */ "./resources/js/components/GoogleMap.vue");
 /* harmony import */ var _components_MapControls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/MapControls */ "./resources/js/components/MapControls.vue");
-/* harmony import */ var _components_MarkerForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/MarkerForm */ "./resources/js/components/MarkerForm.vue");
+/* harmony import */ var _components_FormRenderer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/FormRenderer */ "./resources/js/components/FormRenderer.vue");
 
 
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('GoogleMap', _components_GoogleMap__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('MapControls', _components_MapControls__WEBPACK_IMPORTED_MODULE_2__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('MarkerForm', _components_MarkerForm__WEBPACK_IMPORTED_MODULE_3__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('FormRenderer', _components_FormRenderer__WEBPACK_IMPORTED_MODULE_3__["default"]);
 window.EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   data: function data() {
     return {
@@ -13725,6 +15462,75 @@ window.EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: "#app"
 });
+
+/***/ }),
+
+/***/ "./resources/js/components/FormRenderer.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/FormRenderer.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _FormRenderer_vue_vue_type_template_id_8faa13dc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FormRenderer.vue?vue&type=template&id=8faa13dc& */ "./resources/js/components/FormRenderer.vue?vue&type=template&id=8faa13dc&");
+/* harmony import */ var _FormRenderer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FormRenderer.vue?vue&type=script&lang=js& */ "./resources/js/components/FormRenderer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _FormRenderer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _FormRenderer_vue_vue_type_template_id_8faa13dc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _FormRenderer_vue_vue_type_template_id_8faa13dc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/FormRenderer.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/FormRenderer.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/FormRenderer.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormRenderer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./FormRenderer.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FormRenderer.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_FormRenderer_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/FormRenderer.vue?vue&type=template&id=8faa13dc&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/FormRenderer.vue?vue&type=template&id=8faa13dc& ***!
+  \*********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormRenderer_vue_vue_type_template_id_8faa13dc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./FormRenderer.vue?vue&type=template&id=8faa13dc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/FormRenderer.vue?vue&type=template&id=8faa13dc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormRenderer_vue_vue_type_template_id_8faa13dc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_FormRenderer_vue_vue_type_template_id_8faa13dc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
@@ -13899,38 +15705,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MapControls_vue_vue_type_template_id_750473d2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/components/MarkerForm.vue":
-/*!************************************************!*\
-  !*** ./resources/js/components/MarkerForm.vue ***!
-  \************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-var render, staticRenderFns
-var script = {}
-
-
-/* normalize component */
-
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
-  script,
-  render,
-  staticRenderFns,
-  false,
-  null,
-  null,
-  null
-  
-)
-
-component.options.__file = "resources/js/components/MarkerForm.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 

@@ -5,7 +5,8 @@
 @import 'variables';
 @import 'includes/header';
 @import 'includes/map';
-@import 'app/main.scss';
+@import 'app/main';
+@import 'app/datatables';
 
 .row {
   margin-bottom:0;

@@ -2,8 +2,8 @@
 <html>
 <head>
     @include('includes.app.head')
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css"/>
     <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="/js/dataTables.ext.js"></script>
 </head>
 <body class="dash">
     <div class="container-fluid">

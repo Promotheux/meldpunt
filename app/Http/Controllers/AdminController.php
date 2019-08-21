@@ -38,8 +38,9 @@ class AdminController extends Controller
     }
 
     public function meldpunt(){
-        $reportPoints = ReportPoint::get();
-        return view('auth.admin.meldpunt')->with('reportpoints', $reportPoints);
+//        $reportPoints = ReportPoint::get();
+//        return view('auth.admin.meldpunt')->with('reportpoints', $reportPoints);
+      return view('auth.admin.meldpunt'); //Loading with DataTables
     }
 
     public function marker($report_point_id = false){

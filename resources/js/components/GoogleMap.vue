@@ -34,6 +34,12 @@
                 default(){
                     return 8;
                 }
+            },
+            'geosource': {
+                type: String,
+                default(){
+                    return null;
+                }
             }
         },
         mounted() {
@@ -53,7 +59,7 @@
             var lastOpen = null;
 
             this.$map.data.loadGeoJson(
-                '/data/eikenprocessierups',
+                '/data/' + this.geosource,
                 null,
                 function(features){
                  markers = features.map(function (feature) {

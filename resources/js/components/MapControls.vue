@@ -7,6 +7,7 @@
          <span class="add-marker">
              <button class="btn waves-light" @click="addMarker"><i class="material-icons">{{ icon }}</i><span class="inner"> {{ btnText }} </span></button>
         </span>
+        <form-renderer style="display:none" v-bind:formsource="formsource"></form-renderer>
     </div>
 </template>
 
@@ -14,6 +15,8 @@
 </style>
 
 <script>
+  import FormRenderer from "./FormRenderer";
+
     export default {
         data(){
             return {
@@ -23,6 +26,17 @@
                 icon: "add",
                 btnText: "Voeg uw locatie toe",
             };
+        },
+        props: {
+            'formsource': {
+                type:String,
+                default() {
+                  return null;
+                }
+            }
+        },
+        components: {
+            FormRenderer
         },
         mounted(){
             var input = document.getElementById('pac-input');

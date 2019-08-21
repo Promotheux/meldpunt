@@ -13,8 +13,8 @@
         <div class="row">
             <div class="col s9 map">
                 <div id="app">
-                    <google-map></google-map>
-                    <map-controls></map-controls>
+                    <google-map geosource="{{ strtolower($report->name) }}"></google-map>
+                    <map-controls formsource="{{ strtolower($report->name) }}"></map-controls>
                 </div>
             </div>
             <div class="col s3">

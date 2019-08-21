@@ -28,6 +28,11 @@ Route::group(['prefix' => 'data', 'middleware' => 'cors'], function(){
    Route::get('{report_point_name}', 'MapController@loadGeoJson');
 });
 
+Route::group(['prefix' => 'forms', 'middleware' => 'cors'], function(){
+  Route::get('{report_point_name}', 'FormController@loadForm');
+});
+
+
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
@@ -40,3 +45,4 @@ Route::group(['prefix' => 'admin'], function(){
 });
 
 Route::get('/datatables/meldpunt', 'DataTablesController@getReportPoints')->name('datatables.meldpunten');
+Route::get('/datatables/marker/{report_point_id?}', 'DataTablesController@getMarkers')->name('datatables.markers');

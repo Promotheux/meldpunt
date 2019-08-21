@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import GoogleMap from './components/GoogleMap';
 import MapControls from './components/MapControls';
-import MarkerForm from './components/MarkerForm';
+import FormRenderer from "./components/FormRenderer";
+
 
 Vue.component('GoogleMap', GoogleMap);
 Vue.component('MapControls', MapControls);
-Vue.component('MarkerForm', MarkerForm);
+Vue.component( 'FormRenderer', FormRenderer);
+
 
 window.EventBus = new Vue({
     data(){
